@@ -55,9 +55,10 @@ public class Main_Panel extends JFrame {
 		this.data = data;
 	}
 
-	private int topicheight, abacusheight, instructionheight, fontsize, numofrows, noofcoloumns, noofrods;
+	private int topicheight,  topicwidth,abacusheight, abacuswidth , instructionheight, instructionwidth, fontsize, numofrows, noofcoloumns, noofrods;
 	String  topicalignment;
 	InstructionCompiler compiler;
+	
 	/**
 	 * @return the topicalignment
 	 */
@@ -386,24 +387,18 @@ public class Main_Panel extends JFrame {
 
 						for (int j = 0; j < actionlist.getLayout().getRows().size(); j++) {
 							if (j == 0) {
+								
 								setTopicheight(Integer.parseInt(actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", "")));
-								//setTopicWidth((String.valueOf(actionlist.getLayout().getRows().get(j).getWidth())));
-
+								setTopicwidth(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
 							}
 							if (j == 1) {
 								setAbacusheight(Integer.parseInt(actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", "")));
-								//setAbacusWidth(actionlist.getLayout().getRows().get(j).getWidth());
+								setTopicwidth((Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", ""))));
 
 							}
 							if (j == 2) {
 								setInstructionheight(Integer.parseInt((actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", ""))));
-								//setInstructionWidth((String.valueOf(actionlist.getLayout().getRows().get(j).getWidth())));
-
-							}
-							if (j == 3) {
-							//	setActorHight((String.valueOf(actionlist.getLayout().getRows().get(j).getHeight())));
-								//setActorWidth((String.valueOf(actionlist.getLayout().getRows().get(j).getWidth())));
-
+								setInstructionwidth(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
 							}
 						}
 					}
@@ -411,21 +406,13 @@ public class Main_Panel extends JFrame {
 						if(actionlist.getComponent().getName().replaceAll("null", "").equals("abacus"))
 						{
 
-							//setNoofrods(Integer.parseInt(actionlist.getComponent().getNumOfRods().replaceAll("null", "")));	
+							
 						}
 						else if (actionlist.getComponent().getName().replaceAll("null", "").equals("topic"))
 						{
 							setTopicalignment(actionlist.getComponent().getAlign());
 						}
-						//setName((actionlist.getComponent().getName()));
-
-					//	setTeacherAlign((actionlist.getComponent().getTeacherAlign()));
-					//	setStudentAlign((actionlist.getComponent().getStudentAlign()));
-
-						//setName((actionlist.getComponent().getName()));
-//						setAlign(actionlist.getComponent().getAlign());
-
-//						setImage((actionlist.getComponent().getImage()));
+						
 					}
 				}
 			}
@@ -433,6 +420,33 @@ public class Main_Panel extends JFrame {
 	}
 
 	
+	
+	public int getTopicwidth() {
+		return topicwidth;
+	}
+
+	public void setTopicwidth(int topicwidth) {
+		this.topicwidth = topicwidth;
+	}
+
+	public int getAbacuswidth() {
+		return abacuswidth;
+	}
+
+	public void setAbacuswidth(int abacuswidth) {
+		this.abacuswidth = abacuswidth;
+	}
+
+	
+	
+	public int getInstructionwidth() {
+		return instructionwidth;
+	}
+
+	public void setInstructionwidth(int instructionwidth) {
+		this.instructionwidth = instructionwidth;
+	}
+
 	private char[] getInstruction() {
 		// TODO Auto-generated method stub
 		return null;

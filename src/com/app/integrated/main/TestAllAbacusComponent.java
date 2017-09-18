@@ -122,6 +122,7 @@ public class TestAllAbacusComponent extends JFrame {
 	private JCheckBoxMenuItem stop;
 	private int topic_height=5, abacus_height=60, instruction_height=30, image_height=5;
 	private TopicPanel topicPanel;
+	private Main_Panel mainpanel;
 	LinkedHashMap<String, HashMap<String, List<Action>>>  compilerdata;
 	
 	/**
@@ -209,30 +210,40 @@ public class TestAllAbacusComponent extends JFrame {
 			this.setTitle(topicname);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			this.setBackground(Color.WHITE);
-			
+			mainpanel =new Main_Panel();
 			topicPanel = new TopicPanel();
 
-			topicPanel.setBounds(0, 0, this.getWidth(), this.getHeight()*topicheight/100);
+			
+			//topicPanel.setBounds(0, 0, this.getWidth()*mainpanel.getWidth()/100, this.getHeight()*topicheight/100);
+			
+			topicPanel.setBounds(0, 0, this.getWidth()*100/100, this.getHeight()*topicheight/100);
 			topicPanel.setBackground(Color.WHITE);
 			topicPanel.setTopicName(topicname);
 			topicPanel.setFontName(fontname);
 			topicPanel.setFontSize(fontsize);
 			topicPanel.setAlign(align);
 			panel = new AbacusPanel();
-			panel.setBounds(0, topicPanel.getHeight(), this.getWidth(), this.getHeight()*abacusheight/100);
+			panel.setBounds(0, topicPanel.getHeight(), this.getWidth()*100/100, this.getHeight()*abacusheight/100);
 			panel.initializeAbacus();
+			
 			setUpAbacusTopPanel();
+			
 			instructionpanel = new MainPanel();
 			instructionpanel.ChangeInstructions(dat, instructionpanel);
-			instructionpanel.setBounds(0, panel.getHeight()+topicPanel.getHeight(), this.getWidth(), this.getHeight()*instructionheight/100-this.getHeight()/10);
+			instructionpanel.setBounds(0, panel.getHeight()+topicPanel.getHeight(), this.getWidth()*100/100,
+					this.getHeight()*instructionheight/100-this.getHeight()/10);
 			setupPlayPanel();
 			setupMenuBar();
+			
 			//Add constraints
+			
 			GridBagConstraints constraints = new GridBagConstraints();
 			constraints.fill = GridBagConstraints.BOTH;
 			constraints.ipady = 0;
 			this.setJMenuBar(menuBar);
+			
 			// Add Student Panel
+			
 			constraints.gridx = 0;
 			constraints.gridy = 0;
 			constraints.weightx = 1;
@@ -240,8 +251,8 @@ public class TestAllAbacusComponent extends JFrame {
 			constraints.gridwidth = 1;
 			constraints.gridheight = 1;
 			
-			//this.add(topicPanel, constraints);
-			this.add(topicPanel);
+			this.add(topicPanel, constraints);
+			
 			// Add Callout panel
 			
 			constraints.gridx = 0; 
@@ -251,10 +262,8 @@ public class TestAllAbacusComponent extends JFrame {
 			constraints.weighty = 50/100;
 			constraints.gridwidth = 1;
 			constraints.gridheight = 1;
-			//this.add(panel, constraints);
-			this.add(panel);
-			
-			
+			this.add(panel, constraints);
+	
 			// Add teacher Panel
 			constraints.gridx = 0; 
 			constraints.gridy = 2;
@@ -262,8 +271,9 @@ public class TestAllAbacusComponent extends JFrame {
 			constraints.weighty = 40/100;
 			constraints.gridwidth = 1;
 			constraints.gridheight = 1;
-			//this.add(instructionpanel, constraints);
-			this.add(instructionpanel);
+			this.add(instructionpanel, constraints);
+			
+			//this.add(instructionpanel);
 			//this.revalidate();
 			//this.validate();
 			//this.repaint();

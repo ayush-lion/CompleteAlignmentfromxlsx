@@ -29,10 +29,7 @@ public class TeacherPanel extends JPanel {
 				g.drawImage(image, -20, 0, this.getWidth(), this.getHeight(), null);
 				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//g.fillRect(0, 0, this.getWidth(), this.getHeight());
-		
 	}
 }

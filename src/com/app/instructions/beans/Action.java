@@ -16,6 +16,15 @@ public class Action {
 	private Component component;
 	private Integer rodNumber;
 	private Integer beadNumber;
+	private Integer[] beadNum;
+	
+	
+	public Integer[] getBeadNum() {
+		return beadNum;
+	}
+	public void setBeadNum(Integer[] beadNum) {
+		this.beadNum = beadNum;
+	}
 	private Integer number;
 	private String finger;
 	
