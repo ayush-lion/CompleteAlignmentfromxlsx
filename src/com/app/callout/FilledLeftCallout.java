@@ -21,7 +21,7 @@ public class FilledLeftCallout extends Callout {
 	private Icon icon = null;
 	boolean iconApplied;
 
-	public FilledLeftCallout(Color filledColor, Color foreColor) {
+	public FilledLeftCallout(Color filledColor, Color foreColor) { 
 		this.setBackground(filledColor);
 		this.setForeground(foreColor);
 		this.setOpaque(true);

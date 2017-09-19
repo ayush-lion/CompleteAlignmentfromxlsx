@@ -46,7 +46,7 @@ public abstract class Callout extends JLabel {
            for (int j = 0; j < split.length; j++) {
                buffer.append(split[j] + " "); 
 
-               if (buffer.length() >= wordWrapLength) { 
+               if (buffer.length() >= wordWrapLength) {  
                    int lastindex = buffer.lastIndexOf(" ");
                    if (lastindex < buffer.length()) {
                        buffer.subSequence(lastindex, buffer.length() - 1);

@@ -11,7 +11,7 @@ import java.awt.Image;
  * @author prashant.joshi (198joshi@gmail.com)
  * @version 10-Aug-2017
  */
-public class Bead {
+public class Bead { 
 
 	/* Holds long values */
 	private long beadValue;

@@ -195,7 +195,8 @@ public class TestAllAbacusComponent extends JFrame {
 		this.instruction_height = instruction_height;
 	}
 
-	public TestAllAbacusComponent(int topicheight, int abacusheight, int instructionheight, String topicname, String fontname, int fontsize, String align ) throws Throwable 
+	public TestAllAbacusComponent(int topicheight,int topicWidth ,int abacusWidth , int numofrod,
+			int instructionWidth,int abacusheight, int instructionheight, String topicname, String fontname, int fontsize, String align,String stalign,String ttalign ) throws Throwable 
 	{	
 		
 		try {
@@ -208,29 +209,29 @@ public class TestAllAbacusComponent extends JFrame {
 			
 			this.setResizable(false);
 			this.setTitle(topicname);
-			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 			this.setBackground(Color.WHITE);
-			mainpanel =new Main_Panel();
 			topicPanel = new TopicPanel();
-
 			
-			//topicPanel.setBounds(0, 0, this.getWidth()*mainpanel.getWidth()/100, this.getHeight()*topicheight/100);
-			
-			topicPanel.setBounds(0, 0, this.getWidth()*100/100, this.getHeight()*topicheight/100);
+			topicPanel.setBounds(0, 0, this.getWidth()*topicWidth/100, this.getHeight()*topicheight/100);
 			topicPanel.setBackground(Color.WHITE);
 			topicPanel.setTopicName(topicname);
 			topicPanel.setFontName(fontname);
 			topicPanel.setFontSize(fontsize);
 			topicPanel.setAlign(align);
 			panel = new AbacusPanel();
-			panel.setBounds(0, topicPanel.getHeight(), this.getWidth()*100/100, this.getHeight()*abacusheight/100);
+			panel.setNoOfrod(numofrod);
+			panel.setBounds(0, topicPanel.getHeight(), this.getWidth()*abacusWidth/100, this.getHeight()*abacusheight/100);
 			panel.initializeAbacus();
 			
 			setUpAbacusTopPanel();
 			
 			instructionpanel = new MainPanel();
+			instructionpanel.setStdalign(stalign);
+			instructionpanel.setTuteralign(ttalign);
+			
 			instructionpanel.ChangeInstructions(dat, instructionpanel);
-			instructionpanel.setBounds(0, panel.getHeight()+topicPanel.getHeight(), this.getWidth()*100/100,
+			instructionpanel.setBounds(0, panel.getHeight()+topicPanel.getHeight(), this.getWidth()*instructionWidth/100,
 					this.getHeight()*instructionheight/100-this.getHeight()/10);
 			setupPlayPanel();
 			setupMenuBar();

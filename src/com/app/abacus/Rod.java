@@ -17,7 +17,7 @@ public class Rod {
 	private int posY;
 	private int nPosX;
 	private int nPosY;
-	private int number;
+	private int number; 
 	private int width;
 	private int height;
 	private int rodWidth;
@@ -33,7 +33,7 @@ public class Rod {
 		this.posY = posY;
 		this.width = width;
 		this.height = height;
-		setSwitchable(Boolean.FALSE);
+		setSwitchable(Boolean.FALSE); 
 	}
 	
 	public void drawRod(Graphics g) {

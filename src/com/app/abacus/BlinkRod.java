@@ -20,7 +20,7 @@ public class BlinkRod {
 	private static final int BLINKING_RATE = 1000; // in ms
 
 	private AbacusPanel panel;
-	private Rod rod;
+	private Rod rod; 
 	private boolean startBlink;
 
 	/* Holds timer Instance */

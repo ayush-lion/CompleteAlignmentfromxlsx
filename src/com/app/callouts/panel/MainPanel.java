@@ -21,6 +21,24 @@ public class MainPanel extends JPanel {
 	private TeacherPanel tPanel;
 	private CalloutsPanel cPanel;
 	private List<String> data;
+	private String stdalign;
+	private String tuteralign;
+
+	public String getStdalign() {
+		return stdalign;
+	}
+
+	public void setStdalign(String stdalign) {
+		this.stdalign = stdalign;
+	}
+
+	public String getTuteralign() {
+		return tuteralign;
+	}
+
+	public void setTuteralign(String tuteralign) {
+		this.tuteralign = tuteralign;
+	}
 
 	/**
 	 * @return the data
@@ -45,12 +63,12 @@ public class MainPanel extends JPanel {
 		tPanel = new TeacherPanel();
 			ArrayList<String> temp = new ArrayList<String>();
 			temp.add("test");
-			cPanel = new CalloutsPanel(temp);
+			cPanel = new CalloutsPanel(temp,"right","left","");
 			
 		
 		
 		//Add constraints
-		GridBagConstraints constraints = new GridBagConstraints();
+		GridBagConstraints constraints = new GridBagConstraints(); 
 		constraints.fill = GridBagConstraints.BOTH;
 		constraints.ipadx = 100;
 		
@@ -75,7 +93,7 @@ public class MainPanel extends JPanel {
 		
 		
 		// Add teacher Panel
-		constraints.gridx = 3; 
+		constraints.gridx = 2; 
 		constraints.gridy = 0;
 		constraints.weightx = 0.20;
 		constraints.weighty = 1;
@@ -100,8 +118,15 @@ public class MainPanel extends JPanel {
 		
 		sPanel = new StudentPanel();
 		tPanel = new TeacherPanel();
-		cPanel = new CalloutsPanel(data);
-			
+		
+		if(main.getTuteralign().equals("left")) 
+		{
+		cPanel = new CalloutsPanel(data,main.getStdalign(),main.getTuteralign(),"");
+		}
+		else 
+		{
+		cPanel = new CalloutsPanel(data,main.getStdalign(),main.getTuteralign());	
+		}
 		
 		main.setLayout(new GridBagLayout());
 		//Add constraints
@@ -110,7 +135,16 @@ public class MainPanel extends JPanel {
 		constraints.ipadx = 100;
 		
 		// Add Student Panel
-		constraints.gridx = 0;
+		
+		if(main.getStdalign().equals("left")) 
+		{
+			constraints.gridx = 0;	
+		}
+		else 
+		{
+			constraints.gridx = 3;	
+		}
+		
 		constraints.gridy = 0;
 		constraints.weightx = 0.20;
 		constraints.weighty = 1;
@@ -130,7 +164,19 @@ public class MainPanel extends JPanel {
 		
 		
 		// Add teacher Panel
-		constraints.gridx = 3; 
+		
+		System.out.println("tuter alignhhhh:"+getTuteralign());
+		
+		if(main.getTuteralign().equals("left")) 
+		{
+			constraints.gridx = 0; 	
+		}
+		else 
+		{
+			constraints.gridx = 3; 	
+		}
+		
+		
 		constraints.gridy = 0;
 		constraints.weightx = 0.20;
 		constraints.weighty = 1;

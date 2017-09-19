@@ -47,16 +47,46 @@ public class AbacusPanel extends JPanel {
 	private BlinkRod rBlink = null;
 	private BlinkFrame fBlink = null;
 	private BlinkBeam beamBlink = null;
+	private int noOfrod;
 	
+	public int getNoOfrod() {
+		return noOfrod;
+	}
+
+	public void setNoOfrod(int noOfrod) {
+		this.noOfrod = noOfrod;
+	}
+
 	public AbacusPanel(String abacusAttributesFileName)  {
 		this.abacusAttributesFileName = abacusAttributesFileName;
 	}
-	
+	 
 	public AbacusPanel() {}
+	
+	public void hideRodLabels() 
+	{
+	for(int i = 0; i < getAbacus().getNumOfRods(); i++) 
+		{ 
+		getAbacus().getRods()[i].setDisplayNumbers(false);
+		}
+	this.repaint();
+	}
+	
+	public void showAllLabels() 
+	{
+		for(int i = 0; i < getAbacus().getNumOfRods(); i++) 
+		{ 
+		getAbacus().getRods()[i].setDisplayNumbers(true);
+		}
+	this.repaint();
+		
+	}
+	
 	
 	/**
 	 * Method is responsible to initialize Abacus
 	 */
+	
 	public void initializeAbacus() throws AbacusException {
 		if(abacusAttributesFileName != null) {
 			abacus = new Abacus(abacusAttributesFileName, this);

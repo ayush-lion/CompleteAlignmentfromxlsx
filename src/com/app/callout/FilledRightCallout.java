@@ -21,7 +21,7 @@ public class FilledRightCallout extends Callout {
 	private Icon icon = null;
 	boolean iconApplied;
 	
-	public FilledRightCallout(Color filledColor, Color foreColor) {
+	public FilledRightCallout(Color filledColor, Color foreColor) { 
 		this.setBackground(filledColor);
 		this.setForeground(foreColor);
 		this.setOpaque(true);

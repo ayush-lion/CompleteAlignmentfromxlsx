@@ -18,7 +18,7 @@ public class Beam {
 	private int width;
 	private int height;
 	private Image image;
-	private boolean switchable;
+	private boolean switchable; 
 	
 	public Beam() {
 		switchable = Boolean.FALSE;

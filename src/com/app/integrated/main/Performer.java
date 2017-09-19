@@ -297,7 +297,7 @@ public class Performer implements Runnable {
 							e.printStackTrace();
 						}
 					} else if (action.getActionName().contains("HighlightRod")) {
-						if (action.getRodNumber() != null && action.getBeadNumber() != null && action.getFinger() == ("useleftpointer")) {
+						if (action.getRodNumber() != null && action.getBeadNumber() != null && action.getFinger() == ("userightpointer")) {
 							abacusPanel.highlightSpecificBead(action.getRodNumber(), action.getBeadNumber());
 							abacusPanel.hideFingers(false);
 							try {
@@ -305,7 +305,7 @@ public class Performer implements Runnable {
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-						} else if (action.getRodNumber() != null && action.getBeadNumber() != null && action.getFinger() == ("userightpointer")) {
+						} else if (action.getRodNumber() != null && action.getBeadNumber() != null && action.getFinger() == ("useleftpointer")) {
 							abacusPanel.highlightSpecificRod(action.getRodNumber());
 							abacusPanel.hideFingers(false);
 							try {
@@ -347,11 +347,8 @@ public class Performer implements Runnable {
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-						} else if (action.getRodNumber() != null && action.getBeadNumber() != null
-								&& action.getFinger() != null) {
-							abacusPanel.moveEarthBeadUp(action.getRodNumber(), action.getBeadNumber(),
-									action.getFinger());
-
+						} else if (action.getRodNumber() != null && action.getBeadNumber() != null && action.getFinger() != null) {
+							abacusPanel.moveEarthBeadUp(action.getRodNumber(), action.getBeadNumber(),action.getFinger());
 							abacusPanel.hideFingers(false);
 							try {
 								Thread.sleep(2000);
@@ -360,8 +357,7 @@ public class Performer implements Runnable {
 							}
 
 						} else if (action.getRodNumber() != null && action.getBeadNumber() != null) {
-							abacusPanel.moveEarthBeadUp(action.getRodNumber(), action.getBeadNumber(),
-									action.getFinger());
+							abacusPanel.moveEarthBeadUp(action.getRodNumber(), action.getBeadNumber(),action.getFinger());
 							abacusPanel.hideFingers(false);
 							try {
 								Thread.sleep(2000);
@@ -412,6 +408,8 @@ public class Performer implements Runnable {
 						}
 					}else if (action.getActionName().contains("HighLightDots")) {
 						
+						
+						
 					} 
 					
 					else if (action.getActionName().contains("StopBlink")) {
@@ -427,7 +425,13 @@ public class Performer implements Runnable {
 					} 
 					
 					else if(action.getActionName().contains("HideAllLabels")) {	
-						
+						abacusPanel.hideRodLabels();
+						try {
+							Thread.sleep(2000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						abacusPanel.showAllLabels();	
 					}
 					else if(action.getActionName().contains("reset")) {	
 						abacusPanel.resetAllBooleans();
@@ -443,8 +447,8 @@ public class Performer implements Runnable {
 								e.printStackTrace();
 							}
 						} else if (action.getRodNumber() != null && action.getBeadNumber() != null && action.getFinger() != null) {
+							
 							//abacusPanel. moveBeadUpTogether(action.getRodNumber(), action.getBeadNum, action.getFinger(),action.getFinger());
-
 							abacusPanel.hideFingers(false);
 							try {
 								Thread.sleep(2000);
@@ -453,8 +457,7 @@ public class Performer implements Runnable {
 							}
 
 						} else if (action.getRodNumber() != null && action.getBeadNumber() != null) {
-							abacusPanel.moveEarthBeadUp(action.getRodNumber(), action.getBeadNumber(),
-									action.getFinger());
+							abacusPanel.moveEarthBeadUp(action.getRodNumber(), action.getBeadNumber(),action.getFinger());
 							abacusPanel.hideFingers(false);
 							try {
 								Thread.sleep(2000);
@@ -464,41 +467,11 @@ public class Performer implements Runnable {
 						}
 					}
 					
-					
-					else if(action.getActionName().contains("Answer")) {	
-						
+					else if(action.getActionName().contains("Answer")) {			
 					}
 				} 
 				
 				
-				
-				
-				/*else if (action.getActionName().contains("Rod")) {
-				if (action.getRodNumber() != null && action.getBeadNumber() != null	&& action.getFinger() == ("useleftpointer")) {
-					abacusPanel.highlightSpecificBead(action.getRodNumber(), action.getBeadNumber());
-					try {
-						Thread.sleep(2000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				} else if (action.getRodNumber() != null && action.getBeadNumber() != null) {
-
-					abacusPanel.highlightSpecificBead(action.getRodNumber(), action.getBeadNumber());
-					try {
-						Thread.sleep(2000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				} else if (action.getRodNumber() != null) {
-					abacusPanel.highlightSpecificRod(action.getRodNumber());
-					try {
-						Thread.sleep(2000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			}*/
-
 				/*
 				 * 
 				 * 

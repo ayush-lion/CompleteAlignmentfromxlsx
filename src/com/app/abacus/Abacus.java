@@ -319,6 +319,7 @@ public class Abacus extends AbstractAbacus {
 	/**
 	 * Method is responsible to initial beads
 	 */
+	
 	private void initializeBeads(Map<String, String> attributes) throws IOException {
 		Image beadEarthImagePath = getImage(attributes.get("beadEarthImagePath"));
 		Image beadHeavenImagePath = getImage(attributes.get("beadHeavenImagePath"));

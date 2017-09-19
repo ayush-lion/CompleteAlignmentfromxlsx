@@ -15,6 +15,7 @@ public class Component {
 	private String studentAlign;
 	private String numOfRods;
 	private String image;
+	private String rodnNmbers;
 	
 	public void setImage(String image) {
 		this.image = image;
@@ -24,6 +25,12 @@ public class Component {
 	 */
 	public String getName() {
 		return name;
+	}
+	public String getRodnNmbers() {
+		return rodnNmbers;
+	}
+	public void setRodnNmbers(String rodnNmbers) {
+		this.rodnNmbers = rodnNmbers;
 	}
 	/**
 	 * @param name the name to set

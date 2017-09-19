@@ -471,7 +471,7 @@ public class TestAbacusComponent extends JFrame {
 		abacusTopPanel.add(attrTxt);
 		abacusTopPanel.add(loadAbacus);
 		abacusTopPanel.add(showAbacus);
-	}
+	} 
 
 	private void resetButtonText() {
 		frameBlinkBut.setText("Start Blink Frame");

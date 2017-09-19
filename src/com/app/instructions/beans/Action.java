@@ -13,10 +13,17 @@ public class Action {
 	private String actionName;
 	private Font font;
 	private Layout layout;
+	public String getAlign() {
+		return align;
+	}
+	public void setAlign(String align) {
+		this.align = align; 
+	}
 	private Component component;
 	private Integer rodNumber;
 	private Integer beadNumber;
 	private Integer[] beadNum;
+	private String align;
 	
 	
 	public Integer[] getBeadNum() {
